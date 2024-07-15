@@ -28,5 +28,16 @@ public class InMemoryProgrammingLanguageRepository implements IProgrammingLangua
     public List<ProgrammingLanguage> getAll() {
         return programmingLanguages;
     }
+
+
+    @Override
+    public ProgrammingLanguage getByID(int id) {
+        for (ProgrammingLanguage programmingLanguage : programmingLanguages) {
+            if (programmingLanguage.getID() == id) {
+                return programmingLanguage;
+            }
+        }
+        return null;
+    }
     
 }

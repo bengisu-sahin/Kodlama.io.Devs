@@ -21,5 +21,11 @@ public class ProgrammingLanguagesManager implements IProgrammingLanguagesService
         System.out.println(programmingLanguagesRepo);
         return this.programmingLanguagesRepo.getAll();
     }
+    @Override
+    public ProgrammingLanguage getByID(int id) {
+        return this.programmingLanguagesRepo.getByID(id);
+    }
+
+    
     
 }
