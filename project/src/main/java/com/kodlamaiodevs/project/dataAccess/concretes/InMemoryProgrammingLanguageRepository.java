@@ -39,5 +39,21 @@ public class InMemoryProgrammingLanguageRepository implements IProgrammingLangua
         }
         return null;
     }
+
+
+    @Override
+    public void add(ProgrammingLanguage programmingLanguage) {
+        try {
+            for (ProgrammingLanguage pl : programmingLanguages) {
+                if (pl.getName().equals(programmingLanguage.getName())) {
+                    throw new Exception("Bu isimde bir programlama dili zaten mevcut.");
+                }
+            }
+            programmingLanguage.setID(programmingLanguages.get(programmingLanguages.size() - 1).getID() + 1);
+            programmingLanguages.add(programmingLanguage);
+        } catch (Exception e) {
+            System.out.println("Bir hata oluştu: " + e.getMessage());
+        }
+    }
     
 }

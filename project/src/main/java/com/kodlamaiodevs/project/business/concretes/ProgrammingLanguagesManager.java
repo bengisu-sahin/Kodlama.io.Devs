@@ -25,6 +25,11 @@ public class ProgrammingLanguagesManager implements IProgrammingLanguagesService
     public ProgrammingLanguage getByID(int id) {
         return this.programmingLanguagesRepo.getByID(id);
     }
+    @Override
+    public void add(ProgrammingLanguage programmingLanguage) {
+        this.programmingLanguagesRepo.add(programmingLanguage);
+        return;
+    }
 
     
     

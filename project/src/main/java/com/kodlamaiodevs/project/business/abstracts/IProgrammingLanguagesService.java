@@ -7,5 +7,5 @@ import com.kodlamaiodevs.project.entities.ProgrammingLanguage;
 public interface IProgrammingLanguagesService {
     public List<ProgrammingLanguage> getAll();
     public ProgrammingLanguage getByID(int id);
-    
+    void add(ProgrammingLanguage programmingLanguage);
 }
