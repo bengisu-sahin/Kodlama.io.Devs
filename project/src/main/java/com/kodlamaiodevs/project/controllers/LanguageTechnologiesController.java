@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kodlamaiodevs.project.business.abstracts.ILanguageTechonologyService;
 import com.kodlamaiodevs.project.business.requests.CreateLanguageTechnologyRequest;
+import com.kodlamaiodevs.project.business.requests.DeleteLanguageTechnologyRequest;
 import com.kodlamaiodevs.project.entities.LanguageTechnology;
+import com.mysql.cj.x.protobuf.MysqlxCrud.Delete;
 
 @RestController
 @RequestMapping("/api/languagetechonologies")
@@ -37,5 +39,10 @@ public class LanguageTechnologiesController {
     @PostMapping("/add")
     public void add(@RequestBody CreateLanguageTechnologyRequest request) {
         languageTechonologyService.add(request);
+    }
+
+    @PostMapping("/delete")
+    public void delete(@RequestBody DeleteLanguageTechnologyRequest request) {
+        languageTechonologyService.delete(request);
     }
 }
