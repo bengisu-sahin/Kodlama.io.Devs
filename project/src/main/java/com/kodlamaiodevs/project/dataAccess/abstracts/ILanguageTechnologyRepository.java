@@ -7,4 +7,5 @@ import com.kodlamaiodevs.project.entities.LanguageTechnology;
 public interface ILanguageTechnologyRepository extends JpaRepository<LanguageTechnology,Integer> {
     
     LanguageTechnology getLanguageTechnologyById(Integer id);
+    boolean existsByName(String name);
 }
