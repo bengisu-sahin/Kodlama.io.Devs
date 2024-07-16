@@ -2,10 +2,10 @@ package com.kodlamaiodevs.project.business.abstracts;
 
 import java.util.List;
 
-import com.kodlamaiodevs.project.entities.ProgrammingLanguage;
+import com.kodlamaiodevs.project.business.requests.CreateProgrammingLanguageRequest;
+import com.kodlamaiodevs.project.business.responses.GetAllProgrammingLanguagesResponse;
 
 public interface IProgrammingLanguagesService {
-    public List<ProgrammingLanguage> getAll();
-    public ProgrammingLanguage getByID(int id);
-    void add(ProgrammingLanguage programmingLanguage);
+    public List<GetAllProgrammingLanguagesResponse> getAll();
+    public void add(CreateProgrammingLanguageRequest request);
 }
