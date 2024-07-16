@@ -8,4 +8,7 @@ public interface ILanguageTechnologyRepository extends JpaRepository<LanguageTec
     
     LanguageTechnology getLanguageTechnologyById(Integer id);
     boolean existsByName(String name);
+    boolean existsById(Integer id);
+    LanguageTechnology getByName(String name);
+    LanguageTechnology getById(Integer id);
 }

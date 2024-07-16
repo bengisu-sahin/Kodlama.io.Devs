@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.kodlamaiodevs.project.business.abstracts.ILanguageTechonologyService;
 import com.kodlamaiodevs.project.business.requests.CreateLanguageTechnologyRequest;
 import com.kodlamaiodevs.project.business.requests.DeleteLanguageTechnologyRequest;
+import com.kodlamaiodevs.project.business.requests.UpdateLanguageTechnologyRequest;
 import com.kodlamaiodevs.project.dataAccess.abstracts.ILanguageTechnologyRepository;
 import com.kodlamaiodevs.project.dataAccess.abstracts.IProgrammingLanguagesRepository;
 import com.kodlamaiodevs.project.entities.LanguageTechnology;
@@ -67,5 +68,18 @@ public class LanguageTechnologiesManager implements ILanguageTechonologyService 
         LanguageTechnology languageTechnology = languageTechnologyRepo.findById(request.getId())
                 .orElseThrow(() -> new RuntimeException("Language technology not found."));
         languageTechnologyRepo.delete(languageTechnology);
+    }
+
+    @Override
+    public void update(UpdateLanguageTechnologyRequest request) {
+        LanguageTechnology languageTechnology = languageTechnologyRepo.getById(request.getId());
+        if (languageTechnology == null) {
+            throw new RuntimeException("Language technology not found.");
+        }
+        System.out.println(languageTechnology.getName());
+        languageTechnology.setName(request.getName());
+        languageTechnologyRepo.save(languageTechnology);
+        System.out.println(languageTechnology.getName());
+
     }
 }
