@@ -15,7 +15,6 @@ import com.kodlamaiodevs.project.business.requests.CreateLanguageTechnologyReque
 import com.kodlamaiodevs.project.business.requests.DeleteLanguageTechnologyRequest;
 import com.kodlamaiodevs.project.business.requests.UpdateLanguageTechnologyRequest;
 import com.kodlamaiodevs.project.entities.LanguageTechnology;
-import com.mysql.cj.x.protobuf.MysqlxCrud.Delete;
 
 @RestController
 @RequestMapping("/api/languagetechonologies")
