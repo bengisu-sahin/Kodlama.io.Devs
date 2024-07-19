@@ -11,6 +11,7 @@ import com.kodlamaiodevs.project.business.requests.CreateProgrammingLanguageRequ
 import com.kodlamaiodevs.project.business.requests.UpdateProgrammingLanguageRequest;
 import com.kodlamaiodevs.project.business.responses.GetAllProgrammingLanguagesResponse;
 import com.kodlamaiodevs.project.business.responses.GetByIdProgrammingLanguagesResponse;
+import com.kodlamaiodevs.project.business.rules.ProgrammingLanguageBusinessRule;
 import com.kodlamaiodevs.project.dataAccess.abstracts.IProgrammingLanguagesRepository;
 import com.kodlamaiodevs.project.entities.ProgrammingLanguage;
 
@@ -24,6 +25,7 @@ import lombok.AllArgsConstructor;
 public class ProgrammingLanguagesManager implements IProgrammingLanguagesService{
     private IProgrammingLanguagesRepository programmingLanguagesRepo;
     private IModelMapperService modelMapperService;
+    private ProgrammingLanguageBusinessRule programmingLanguageBusinessRule;
 
     @Override
     public List<GetAllProgrammingLanguagesResponse> getAll() {
@@ -47,10 +49,8 @@ public class ProgrammingLanguagesManager implements IProgrammingLanguagesService
     @Override
     public void add(CreateProgrammingLanguageRequest request) {
 
-        if (programmingLanguagesRepo.existsByName(request.getName())) {
-            throw new RuntimeException("A programming language with this name already exists: " + request.getName());
-        }
-
+        this.programmingLanguageBusinessRule.checkifPRogrammingLanguageExists(request.getName());
+        
         ProgrammingLanguage pl = this.modelMapperService.forRequest().map(request, ProgrammingLanguage.class);
         programmingLanguagesRepo.save(pl);
     }

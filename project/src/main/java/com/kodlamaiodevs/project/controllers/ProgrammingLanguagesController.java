@@ -20,6 +20,8 @@ import com.kodlamaiodevs.project.business.requests.UpdateProgrammingLanguageRequ
 import com.kodlamaiodevs.project.business.responses.GetAllProgrammingLanguagesResponse;
 import com.kodlamaiodevs.project.business.responses.GetByIdProgrammingLanguagesResponse;
 
+import jakarta.validation.Valid;
+
 
 @RestController
 @RequestMapping("/api/programminglanguages")
@@ -44,7 +46,7 @@ public class ProgrammingLanguagesController {
 
     @PostMapping()
     @ResponseStatus(code = HttpStatus.CREATED)
-    public void add(@RequestBody CreateProgrammingLanguageRequest request) {
+    public void add(@RequestBody @Valid CreateProgrammingLanguageRequest request) {
         this.programmingLanguagesService.add(request);
     }
 

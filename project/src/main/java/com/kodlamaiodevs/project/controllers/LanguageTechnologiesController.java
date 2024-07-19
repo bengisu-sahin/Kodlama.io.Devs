@@ -17,6 +17,8 @@ import com.kodlamaiodevs.project.business.requests.UpdateLanguageTechnologyReque
 import com.kodlamaiodevs.project.business.responses.GetAllLanguageTechnologyResponse;
 import com.kodlamaiodevs.project.entities.LanguageTechnology;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/languagetechonologies")
 public class LanguageTechnologiesController {
@@ -38,7 +40,7 @@ public class LanguageTechnologiesController {
     }
     
     @PostMapping("/add")
-    public void add(@RequestBody CreateLanguageTechnologyRequest request) {
+    public void add(@RequestBody @Valid CreateLanguageTechnologyRequest request) {
         languageTechonologyService.add(request);
     }
 

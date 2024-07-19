@@ -16,6 +16,7 @@ import lombok.Setter;
 public class CreateLanguageTechnologyRequest {
     @NotNull
     @NotBlank
+    @Size(min = 3, max = 50)
     private String name;
 
     @NotNull
