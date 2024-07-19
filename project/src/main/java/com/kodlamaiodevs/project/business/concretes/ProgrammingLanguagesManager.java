@@ -15,6 +15,7 @@ import com.kodlamaiodevs.project.business.rules.ProgrammingLanguageBusinessRule;
 import com.kodlamaiodevs.project.dataAccess.abstracts.IProgrammingLanguagesRepository;
 import com.kodlamaiodevs.project.entities.ProgrammingLanguage;
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 
@@ -66,7 +67,11 @@ public class ProgrammingLanguagesManager implements IProgrammingLanguagesService
     @Override
     @Transactional
     public void update(UpdateProgrammingLanguageRequest request) {
-        ProgrammingLanguage pl = this.modelMapperService.forRequest().map(request, ProgrammingLanguage.class);
+        ProgrammingLanguage pl = this.programmingLanguagesRepo.findById(request.getId())
+                .orElseThrow(() -> new EntityNotFoundException("ProgrammingLanguage not found"));
+
+        this.modelMapperService.forRequest().map(request, pl);
+
         this.programmingLanguagesRepo.save(pl);
     }
 

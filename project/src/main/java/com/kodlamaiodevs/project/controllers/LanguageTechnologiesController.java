@@ -3,6 +3,7 @@ package com.kodlamaiodevs.project.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,7 +35,7 @@ public class LanguageTechnologiesController {
         return languageTechonologyService.getAll();
     }
 
-    @GetMapping("/getByProgrammingLanguageName")
+    @GetMapping("/getByProgrammingLanguage")
     public List<LanguageTechnology> getByProgrammingLanguageName(@RequestParam int id) {
         return languageTechonologyService.getByLanguageName(id);
     }
@@ -44,7 +45,7 @@ public class LanguageTechnologiesController {
         languageTechonologyService.add(request);
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public void delete(@RequestBody DeleteLanguageTechnologyRequest request) {
         languageTechonologyService.delete(request);
     }
