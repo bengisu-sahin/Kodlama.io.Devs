@@ -2,36 +2,34 @@ package com.kodlamaiodevs.project.business.concretes;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kodlamaiodevs.project.business.abstracts.ILanguageTechonologyService;
+import com.kodlamaiodevs.project.business.core.utilities.mappers.IModelMapperService;
 import com.kodlamaiodevs.project.business.requests.CreateLanguageTechnologyRequest;
 import com.kodlamaiodevs.project.business.requests.DeleteLanguageTechnologyRequest;
 import com.kodlamaiodevs.project.business.requests.UpdateLanguageTechnologyRequest;
+import com.kodlamaiodevs.project.business.responses.GetAllLanguageTechnologyResponse;
 import com.kodlamaiodevs.project.dataAccess.abstracts.ILanguageTechnologyRepository;
 import com.kodlamaiodevs.project.dataAccess.abstracts.IProgrammingLanguagesRepository;
 import com.kodlamaiodevs.project.entities.LanguageTechnology;
-import com.kodlamaiodevs.project.entities.ProgrammingLanguage;
 
 import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
 
 @Service
+@AllArgsConstructor
 public class LanguageTechnologiesManager implements ILanguageTechonologyService {
 
     private ILanguageTechnologyRepository languageTechnologyRepo;
     private IProgrammingLanguagesRepository programmingLanguagesRepo;
-    
-    @Autowired
-    public LanguageTechnologiesManager(ILanguageTechnologyRepository languageTechnologyRepo, IProgrammingLanguagesRepository programmingLanguagesRepo) {
-        this.languageTechnologyRepo = languageTechnologyRepo;
-        this.programmingLanguagesRepo = programmingLanguagesRepo;
-    }
+    private IModelMapperService modelMapperService;
 
     @Override
-    public List<LanguageTechnology>  getAll() {
-       return languageTechnologyRepo.findAll();
+    public List<GetAllLanguageTechnologyResponse> getAll() {
+        List<GetAllLanguageTechnologyResponse> response = languageTechnologyRepo.findAll().stream()
+                .map(lt -> modelMapperService.forResponse().map(lt, GetAllLanguageTechnologyResponse.class)).toList();
+        return response;
     }
 
     @Override
@@ -49,19 +47,12 @@ public class LanguageTechnologiesManager implements ILanguageTechonologyService 
     @Override
     @Transactional 
     public void add(CreateLanguageTechnologyRequest request) {
-        LanguageTechnology languageTechnology = new LanguageTechnology();
-        ProgrammingLanguage programmingLanguage = programmingLanguagesRepo.findById(request.getProgrammingLanguageId())
-                .orElseThrow(() -> new RuntimeException("Programming Language  not found."));
-
-        // Check if language technology with the same name exists
-        if (languageTechnologyRepo.existsByName(request.getName())) {
-            throw new RuntimeException("Language technology already exists.");
-        }
-
-        languageTechnology.setName(request.getName());
-        languageTechnology.setProgrammingLanguage(programmingLanguage);
+        LanguageTechnology languageTechnology = this.modelMapperService.forRequest().map(request, LanguageTechnology.class);
+        //languageTechnology.setId(0);
         languageTechnologyRepo.save(languageTechnology);
+        
     }
+    
 
     @Override
     public void delete(DeleteLanguageTechnologyRequest request) {

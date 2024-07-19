@@ -45,7 +45,6 @@ public class ProgrammingLanguagesController {
     @PostMapping()
     @ResponseStatus(code = HttpStatus.CREATED)
     public void add(@RequestBody CreateProgrammingLanguageRequest request) {
-        System.out.println(request.getName());
         this.programmingLanguagesService.add(request);
     }
 

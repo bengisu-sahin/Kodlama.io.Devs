@@ -14,6 +14,7 @@ import com.kodlamaiodevs.project.business.abstracts.ILanguageTechonologyService;
 import com.kodlamaiodevs.project.business.requests.CreateLanguageTechnologyRequest;
 import com.kodlamaiodevs.project.business.requests.DeleteLanguageTechnologyRequest;
 import com.kodlamaiodevs.project.business.requests.UpdateLanguageTechnologyRequest;
+import com.kodlamaiodevs.project.business.responses.GetAllLanguageTechnologyResponse;
 import com.kodlamaiodevs.project.entities.LanguageTechnology;
 
 @RestController
@@ -27,7 +28,7 @@ public class LanguageTechnologiesController {
     }
 
     @GetMapping("/getAll")
-    public List<LanguageTechnology>  getAll() {
+    public List<GetAllLanguageTechnologyResponse>  getAll() {
         return languageTechonologyService.getAll();
     }
 

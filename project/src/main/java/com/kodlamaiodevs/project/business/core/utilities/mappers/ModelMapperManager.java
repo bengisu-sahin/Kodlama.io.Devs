@@ -10,7 +10,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class ModelMapperManager implements IModelMapperService {
     private ModelMapper modelMapper;
-
+    
     @Override
     public ModelMapper forResponse() {
         this.modelMapper.getConfiguration().setAmbiguityIgnored(true)
