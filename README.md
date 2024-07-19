@@ -2,14 +2,25 @@
 # Kodlama.io.Devs
 
 We want to write a project where we bring the coding skills of candidates together with employers.
+  • This project is a Java Spring Boot project developed for kodlama.io Bootcamp homework given by Engin Demiroğ.
 
-## Technologies
+## Languages and Tools
 
-The project was developed with Java-Spring and MySql database was used.
+<p align="left"> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://spring.io/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" alt="spring" width="40" height="40"/> </a> </p>
 
-[https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white ](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+## Requirements
 
-https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white 
+Project Name: Kodlama.io.Devs
 
-https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white    
+### Req 1
   
+• Programming languages ​​must be kept in the system. 
+• Write codes that can add, delete, update, list and fetch programming languages ​​(C#, Java, Python) with id.
+• Names cannot be repeated.
+• Programming language cannot be left blank.
+
+### Req 2
+• Sub-technologies of programming languages ​​should be able to be added and deleted to the system. It should be updated and listed.
+   → For example; Java: Spring, JSP.
+                  C#: WPF, ASP.NET,
+                  JavaScript: Vue, React
