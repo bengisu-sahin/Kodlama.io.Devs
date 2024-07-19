@@ -14,6 +14,8 @@ import com.kodlamaiodevs.project.business.core.utilities.exceptions.BusinessExce
 import com.kodlamaiodevs.project.business.rules.ProblemDetails;
 import com.kodlamaiodevs.project.business.rules.ValidationProblemDetails;
 
+
+
 @SpringBootApplication
 @RestControllerAdvice // This annotation is used to handle exceptions globally
 public class ProjectApplication {
@@ -39,5 +41,5 @@ public class ProjectApplication {
 			problemDetails.getValidationErrors().put(fieldError.getField(), fieldError.getDefaultMessage());
 		});
 		return problemDetails;
-	}
+	}  
 }
