@@ -2,6 +2,7 @@
 # Kodlama.io.Devs
 
 We want to write a project where we bring the coding skills of candidates together with employers.
+
   • This project is a Java Spring Boot project developed for kodlama.io Bootcamp homework given by Engin Demiroğ.
 
 ## Languages and Tools
@@ -30,4 +31,3 @@ Project Name: Kodlama.io.Devs
                   JavaScript: Vue, React
 ## API's
 ![image](https://github.com/user-attachments/assets/91c36f34-002d-483c-bffd-3ef7060e13c5)
-
