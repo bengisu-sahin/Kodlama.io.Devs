@@ -15,12 +15,19 @@ Project Name: Kodlama.io.Devs
 ### Req 1
   
 • Programming languages ​​must be kept in the system. 
+
 • Write codes that can add, delete, update, list and fetch programming languages ​​(C#, Java, Python) with id.
+
 • Names cannot be repeated.
+
 • Programming language cannot be left blank.
 
 ### Req 2
 • Sub-technologies of programming languages ​​should be able to be added and deleted to the system. It should be updated and listed.
+
    → For example; Java: Spring, JSP.
                   C#: WPF, ASP.NET,
                   JavaScript: Vue, React
+## API's
+![image](https://github.com/user-attachments/assets/91c36f34-002d-483c-bffd-3ef7060e13c5)
+
